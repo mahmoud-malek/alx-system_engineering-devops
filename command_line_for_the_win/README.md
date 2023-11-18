@@ -50,17 +50,17 @@ In addition to task completion and submitting the required screenshots to GitHub
 ### 0. First Nine Tasks
 
 Complete the initial 9 tasks.
-![0-first_9_tasks Screenshot](GitHub_repository_path_to_0-first_9_tasks.jpg)
+![0-first_9_tasks Screenshot](https://github.com/mahmoud-malek/alx-system_engineering-devops/blob/master/command_line_for_the_win/0-first_9_tasks.png)
 
 ### 1. Reach Completion of Nine More Tasks
 
 Complete the following 9 tasks, totaling 18.
-![1-next_9_tasks Screenshot](GitHub_repository_path_to_1-next_9_tasks.jpg)
+![1-next_9_tasks Screenshot](https://github.com/mahmoud-malek/alx-system_engineering-devops/blob/master/command_line_for_the_win/1-next_9_tasks.png)
 
 ### 2. Achieve 27 Tasks (Perfect Cube)
 
 Complete the subsequent 9 tasks, reaching a total of 27.
-![2-next_9_tasks Screenshot](GitHub_repository_path_to_2-next_9_tasks.jpg)
+![2-next_9_tasks Screenshot](https://github.com/mahmoud-malek/alx-system_engineering-devops/blob/master/command_line_for_the_win/2-next_9_tasks.png)
 
 ---
 
