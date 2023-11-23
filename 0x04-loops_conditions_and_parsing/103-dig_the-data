@@ -2,11 +2,4 @@
 # Using awk to count occurrences of each unique combination of IP and HTTP status code,
 # then sorting and displaying the data in the specified format
 
-awk '{ ip_count[$1 " " $9]++ }
-END { 
-for (i in ip_count) {
- split(i, parts, " ")
- print ip_count[i], parts[1], parts[2]
- }
-
-}' apache-access.log | sort -rn
+awk '{ print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
