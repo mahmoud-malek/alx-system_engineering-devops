@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#a Bash script that displays the content of the file /etc/passwd.
+#Your script should only display:
+#
+#username
+#user id
+#Home directory path for the user.
+
+while IFS=: read -r username password uid gid GECOS home Command; do
+
+	echo "The user $username is part of the $gid gang, lives in $home and rides $Command."\
+	"$uid's place is protected by the passcode $password,"\
+	"more info about the user here: $GECOS"
+
+done < /etc/passwd
