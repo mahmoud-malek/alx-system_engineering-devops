@@ -1,0 +1,16 @@
+#!/bin/bash
+# HHHHH
+case $1 in
+    start)
+        ./manage_my_process start
+        ;;
+    stop)
+        ./manage_my_process stop
+        ;;
+    restart)
+        ./manage_my_process restart
+        ;;
+    *)
+        echo "Usage: 101-manage_my_process {start|stop|restart}"
+        ;;
+esac
