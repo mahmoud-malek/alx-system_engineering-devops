@@ -19,6 +19,6 @@ case $1 in
 		 echo "manage_my_process restarted"
         ;;
     *)
-        echo "Usage: 101-manage_my_process {start|stop|restart}"
+        echo "Usage: manage_my_process {start|stop|restart}"
         ;;
 esac
