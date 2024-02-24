@@ -1,10 +1,12 @@
 # set up your client SSH configuration file so that you can connect
 # to a server without typing a password.
 
-file { '/home/.ssh/config':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0600',
-    content => "Host *\n    IdentityFile /home/.ssh/school\n    PasswordAuthentication no\n    PubkeyAuthentication yes\n",
+file_line { 'Turn off passwd auth':
+  path => '/etc/ssh/ssh_config',
+  line => 'PasswordAuthentication no',
+}
+
+file_line { 'Declare identity file':
+  path => '/etc/ssh/ssh_config',
+  line => 'IdentityFile ~/.ssh/school',
 }
