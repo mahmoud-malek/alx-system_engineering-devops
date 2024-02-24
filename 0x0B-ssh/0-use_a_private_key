@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-# This script is used to demonstrate how to use a private key to authenticate to a remote server
+# This script is used to demonstrate how to use a private key to authenticate to a server.
 
-# The private key file
-private_key_path = "~/.ssh/school"
-user = "ubuntu"
+port=2222
+path=~/.ssh/school
+host=18.204.10.149
+user="ubuntu"
 
-# The remote server
-server_ip = "18.204.10.149"
-
-# The command to run on the remote server
-ssh -i $private_key_path $user@$server_ip
+ssh -i $path -p $port $user@$host
