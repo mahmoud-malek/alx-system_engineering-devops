@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-
 # This script is used to demonstrate how to use a private key to authenticate to a server.
 
-port=2222
-path=~/.ssh/school
-host=18.204.10.149
-user="ubuntu"
-
-ssh -i $path -p $port $user@$host
+ssh -i ~/.ssh/school ubuntu@18.204.10.149
