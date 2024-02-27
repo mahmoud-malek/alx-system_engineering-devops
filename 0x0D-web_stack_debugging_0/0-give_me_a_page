@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This is a script to start the apache2 service and make a relaod
+
+service apache2 start
+service apache2 reload
+
