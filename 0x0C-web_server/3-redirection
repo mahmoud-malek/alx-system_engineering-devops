@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another page.
+
+sudo ./1-install_nginx_web_server
+
+file="/etc/nginx/sites-available/default"
+
+# Add a redirection
+
+sudo sed -i 's/^.*location \/ {/        location \/redirect_me {/g' $file
