@@ -1,6 +1,33 @@
 #!/usr/bin/env bash
-# Configure your Nginx server so that /redirect_me is redirecting to another page.
+# Bash script that configures a new Ubuntu machine
+
+# Installation process
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+
+configs="server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /redirect_me {
+		return 301 https://www.google.com/;
+	}
+
+	error_page 404 /404.html;
+	location = /404.html {
+		root /var/www/html;
+		internal;
+	}
+}"
 
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-sed -i "37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-sudo service nginx start
+
+echo "$configs" | sudo tee /etc/nginx/sites-available/default
+sudo service nginx restart
+
