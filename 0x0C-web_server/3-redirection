@@ -2,8 +2,9 @@
 # Bash script that configures a new Ubuntu machine
 
 # Installation process
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
 sudo service nginx start
 
 configs="server {
@@ -16,14 +17,9 @@ configs="server {
 	server_name _;
 
 	location /redirect_me {
-		return 301 https://www.google.com/;
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 
-	error_page 404 /404.html;
-	location = /404.html {
-		root /var/www/html;
-		internal;
-	}
 }"
 
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
