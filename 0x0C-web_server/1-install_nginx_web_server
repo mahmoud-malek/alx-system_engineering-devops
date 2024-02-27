@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine
+
+# Installation process
+apt-get -y install nginx
+
+
+# Edting the the default web page
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
