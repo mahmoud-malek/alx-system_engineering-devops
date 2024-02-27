@@ -2,8 +2,9 @@
 # Bash script that configures a new Ubuntu machine
 
 # Installation process
+sudo apt-get update
 sudo apt-get -y install nginx
-
+sudo service nginx start
 
 # Edting the the default web page
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
