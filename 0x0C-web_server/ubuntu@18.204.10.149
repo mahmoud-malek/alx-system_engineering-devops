@@ -3,19 +3,19 @@
 
 #variables
 REDIRECT="\\\tlocation /redirect_me {\n\t\treturn 301 https://www.google.com/;\n\t}"
-ERROR404="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/nginx/html;\n\t\tinternal;\n\t}"
+ERROR404="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/nginx/html/index.nginx-debian.html;\n\t\tinternal;\n\t}"
 
 # Installation process
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
 
-# Editing the default web page
+# Edting the the default web page
 echo "Hello World!" | sudo tee /var/www/nginx/html/index.nginx-debian.html
 sudo sed -i "/listen 80 default_server;/a $REDIRECT" /etc/nginx/sites-available/default
 
 # Adding a custom 404 page
-echo "Ceci n'est pas une page" | sudo tee /var/www/nginx/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 sudo sed -i "/listen 80 default_server;/a $ERROR404" /etc/nginx/sites-available/default
 
 # Restarting the server
