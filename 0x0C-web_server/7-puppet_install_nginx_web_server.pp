@@ -37,7 +37,7 @@ package { 'nginx':
 #configuring the Nginx server
 file { '/var/www/html/index.html':
   ensure  => file,
-  content => "Hello, World!\n",
+  content => "Hello World!\n",
 }
 
 file { '/var/www/html/404.html':
