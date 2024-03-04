@@ -9,5 +9,12 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
 
-sudo sed -i 's|server_name localhost;|add_header X-Served-By $HOSTNAME;|' /etc/nginx/sites-available/default
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        add_header X-Served-By $(hostname);
+    }
+}" | sudo tee /etc/nginx/sites-available/default
+
 sudo service nginx restart
