@@ -41,16 +41,19 @@ package { 'nginx':
 file { '/var/www/html/index.html':
   ensure  => file,
   content => "Hello World!\n",
+  require => Package['nginx'],
 }
 
 file { '/var/www/html/404.html':
   ensure  => file,
   content => "Ceci n'est pas une page\n\n",
+  require => Package['nginx'],
 }
 
 file { '/etc/nginx/sites-available/default':
   ensure  => file,
   content => $config,
+  require => Package['nginx'],
 }
 
 #starting the Nginx service
