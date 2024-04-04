@@ -13,8 +13,8 @@ configs="frontend http_front
 backend http_back
 	balance roundrobin
 	mode http
-	server 433785-web-01 18.204.10.149:80 check
-	server 433785-web-02 34.239.254.0:80 check"
+	server 433785-web-01 18.234.145.174:80 check
+	server 433785-web-02 34.202.158.120:80 check"
 
 echo "$configs" | sudo tee /etc/haproxy/haproxy.cfg
 
