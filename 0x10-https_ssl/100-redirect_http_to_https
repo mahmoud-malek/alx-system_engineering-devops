@@ -1,0 +1,17 @@
+global
+        tune.ssl.default-dh-param 2048
+
+
+frontend http_front
+        bind *:80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.yes-ok.tech/www.yes-ok.tech.pem
+        mode http
+        default_backend http_back
+
+backend http_back
+        balance roundrobin
+        mode http
+        redirect scheme https code 301 if !{ ssl_fc }
+        server 433785-web-01 18.234.145.174:80 check
+        server 433785-web-02 34.202.158.120:80 check
+		

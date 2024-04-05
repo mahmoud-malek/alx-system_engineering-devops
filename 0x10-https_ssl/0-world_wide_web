@@ -12,7 +12,7 @@ dig_cmd () {
 	ALL="$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
 	IP=$(echo "$ALL" | awk '{print $5}')
 	RECORD=$(echo "$ALL" | awk '{print $4}')
-
+redirect scheme https if !{ ssl_fc }
 	echo -e "The subdomain $sub is a $RECORD record and points to $IP"
 }
 
