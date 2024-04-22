@@ -1,5 +1,4 @@
-#!/usr/bin/ptyhon3
-
+#!/usr/bin/python3
 """ a script that, using this REST API, for a given employee ID, """
 
 import json
