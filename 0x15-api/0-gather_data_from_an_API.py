@@ -16,7 +16,7 @@ if __name__ == '__main__':
     ID = sys.argv[1]
     user_name = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(ID)).json().get(
-            'username')
+            'name')
     todos = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             ID)).json()
