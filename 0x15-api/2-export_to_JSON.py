@@ -21,9 +21,15 @@ if __name__ == "__main__":
 
     for task in all_data:
         setof_data.append({
-            "task": task.get('title'),
-            "completed": task.get('completed'),
-            "username": requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(ID)).json().get('username')})
+            "task":
+            task.get('title'),
+            "completed":
+            task.get('completed'),
+            "username":
+            requests.get(
+                'https://jsonplaceholder.typicode.com/users/{}'.format(
+                    ID)).json().get('username')
+        })
 
     with open('{}.json'.format(ID), 'w') as f:
         json.dump(data, f)
