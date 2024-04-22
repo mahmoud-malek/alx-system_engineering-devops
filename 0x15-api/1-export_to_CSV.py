@@ -23,9 +23,6 @@ if __name__ == '__main__':
             ID)).json()
     todos_done = [todo for todo in todos if todo.get('completed') is True]
 
-    print('Employee {} is done with tasks({}/{}):'.format(
-        user_name, len(todos_done), len(todos)))
-
     with open('{}.csv'.format(ID), 'w') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for todo in todos:
