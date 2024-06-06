@@ -1,4 +1,4 @@
-#!/usr/bin/python4
+#!/usr/bin/python3
 """ a module that contains a function that queries the Reddit
 API and returns the number of subscribers
 (not active users, total subscribers)"""
