@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """
 Get all hosts for your organization returns "OK" response
 """
@@ -10,7 +9,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
     api_instance = HostsApi(api_client)
     response = api_instance.list_hosts(
-        filter="env:ci",
+        filter=,
     )
 
     print(response)
