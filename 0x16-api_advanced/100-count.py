@@ -10,23 +10,32 @@
 import requests
 
 
-def count_words(subreddit, word_list):
+def count_words(subreddit, word_list, word_count={}, after=None):
     """ this is a function to get the top ten
-                                    posts in a subreddit
-                                    """
+                                                                            posts in a subreddit
+                                                                            """
     headers = {"User-Agent": "Linux: Mahmoud malek"}
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    if after:
+        url = url + '?after=' + after
     res = requests.get(url, headers=headers)
     if res.status_code != 200:
-        print(None)
+        return None
+    if res.json()['data']['children'] == []:
+        if len(word_count) == 0:
+            return
+        for key in sorted(word_count, key=word_count.get, reverse=True):
+            if word_count[key] != 0:
+                print("{}: {}".format(key, word_count[key]))
         return
-    hot_list = []
     for i in res.json()['data']['children']:
-        hot_list.append(i['data']['title'])
-    for i in word_list:
-        count = 0
-        for j in hot_list:
-            count += j.lower().split().count(i.lower())
-        if count != 0:
-            print("{}: {}".format(i, count))
-    return
+        title = i['data']['title'].lower().split()
+        for word in word_list:
+            word = word.lower()
+            if word in title:
+                if word in word_count:
+                    word_count[word] += title.count(word)
+                else:
+                    word_count[word] = title.count(word)
+    after = res.json()['data']['after']
+    return count_words(subreddit, word_list, word_count, after)
