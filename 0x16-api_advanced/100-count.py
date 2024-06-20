@@ -12,8 +12,8 @@ import requests
 
 def count_words(subreddit, word_list, word_count={}, after=None):
     """ this is a function to get the top ten
-                                                                            posts in a subreddit
-                                                                            """
+        posts in a subreddit
+    """
     headers = {"User-Agent": "Linux: Mahmoud malek"}
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     if after:
