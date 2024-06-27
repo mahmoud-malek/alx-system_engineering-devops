@@ -28,9 +28,4 @@ server {
         proxy_pass http://127.0.0.1:5003;
     }
 
-    # Default location block to prevent falling back to serving static files
-    location / {
-        try_files $uri $uri/ =404;
-
-    }
 }
