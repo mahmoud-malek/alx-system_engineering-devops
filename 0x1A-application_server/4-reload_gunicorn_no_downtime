@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-#reloads Gunicorn
+# reloads Gunicorn
 
-pgrep -f 'gunicorn.*master' | xargs -r kill -HUP
+# ShellCheck disable=SC2009
+ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
