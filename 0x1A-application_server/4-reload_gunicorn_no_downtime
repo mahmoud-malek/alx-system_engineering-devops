@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #reloads Gunicorn
 
-pgrep gunicorn | awk '{ print $2 }' | xargs kill -HUP
+pgrep -f 'gunicorn.*master' | xargs -r kill -HUP
